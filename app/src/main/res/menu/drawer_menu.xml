@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnu_home"
+            android:icon="@mipmap/ic_launcher"
+            android:title="Home" />
+        <item
+            android:id="@+id/mnu_new_pass"
+            android:icon="@mipmap/ic_launcher"
+            android:title="New Pass">
+            <menu>
+                <item
+                    android:id="@+id/mnu_new_ind_pass"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Individual Pass" />
+                <item
+                    android:id="@+id/mnu_new_veh_pass"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Vehicle Pass" />
+            </menu>
+
+
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/history"
+            android:icon="@color/colorPrimary"
+            android:title="History">
+            <menu>
+                <item
+                    android:id="@+id/all"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="All" />
+                <item
+                    android:id="@+id/accepted"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Accepted" />
+                <item
+                    android:id="@+id/rejected"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Rejected" />
+                <item
+                    android:id="@+id/pending"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Pending" />
+
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/setting"
+            android:title="Setting" />
+        <item
+            android:id="@+id/logout"
+            android:title="Log out" />
+
+    </group>
+</menu>

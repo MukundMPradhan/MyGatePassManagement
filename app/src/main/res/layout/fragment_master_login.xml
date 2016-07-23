@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="in.app.myandroid.mygatepassmanagement.MasterLoginFragment">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Master Login ..."
+    android:layout_margin="10dp"
+    android:textAppearance="@android:style/TextAppearance.Large" />
+    <EditText
+        android:id="@+id/etMasterUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Master User Name"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout3"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <EditText
+        android:id="@+id/etMasterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+android:id="@+id/buttonMasterLogin"
+style="@style/pink_button"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="50dp"
+android:text="Master Login"
+android:textAllCaps="false"
+
+/>
+
+</LinearLayout>
