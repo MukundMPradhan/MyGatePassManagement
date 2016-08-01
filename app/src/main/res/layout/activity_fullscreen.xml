@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context="in.app.myandroid.mygatepassmanagement.FullscreenActivity"
+    tools:context="in.app.myandroid.mygatepassmanagement.activities.GatePassManagement"
     android:id="@+id/constraintLayout2">
 
     <!-- The primary full-screen view. This can be replaced with whatever view

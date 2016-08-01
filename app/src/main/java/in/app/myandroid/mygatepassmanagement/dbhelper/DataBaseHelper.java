@@ -6,13 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import in.app.myandroid.mygatepassmanagement.model.Company;
+import in.app.myandroid.mygatepassmanagement.model.GatePass;
 import in.app.myandroid.mygatepassmanagement.model.LoginUser;
-import in.app.myandroid.mygatepassmanagement.model.NewPass;
+
+import static android.R.attr.data;
 
 /**
  * Created by mukund on 27/6/16.
@@ -84,6 +85,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COL_CONTACT_PERSON = "contact_person";
     private static final String COL_CONTACT_NO = "contact_person_no";
 
+    private static final String COL_AUTH_LETTER_PATH = "auth_letter_path";
+    private static final String COL_RC_BOOK_PATH = "rc_book_path";
+    private static final String COL_INS_BOOK_PATH = "insurance_path";
+    private static final String COL_SAFETY_CERT = "safety_certificate";
+
     //
 
     private static final String create_UserDetails_Table = "CREATE TABLE " + TABLE_USERDETAILS +
@@ -149,6 +155,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + COL_OWNER_NAME + " TEXT," + " "
             + COL_ID_PROOF_TYPE + " TEXT," + " "
             + COL_ID_NO + " TEXT," + " "
+            + COL_AUTH_LETTER_PATH + " TEXT," + " "
+            + COL_RC_BOOK_PATH + " TEXT," + " "
+            + COL_INS_BOOK_PATH + " TEXT," + " "
+            + COL_SAFETY_CERT + " TEXT," + " "
             + COL_GUARD_STATUS + " TEXT," + " "
             + COL_MASTER_STATUS + " TEXT," + " "
             + COL_MOD_STATUS + " TEXT," + " "
@@ -327,6 +337,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return password;
     }
 
+    //   public String getMaxRefId() {
+//        database = getReadableDatabase();
+//
+//        String sql = "SELECT MAX(ref_id) from gatepass where pass_type='Individual'";//"Select ISNULL(Max(" + COL_REF_ID + "),100000) " + TABLE_GATEPASS + " Where " + COL_PASS_TYPE + " = Individual";
+//        Cursor cursor = database.rawQuery(sql, null);
+//        // Cursor cursor = database.query(TABLE_GATEPASS, new String[]{"MAX(" + COL_REF_ID + ")"}, null, null, null, null, null);
+//
+//        // Cursor cursor = database.query(TABLE_GATEPASS, null, COL_USERID + "=?",
+//        //       new String[]{userName}, null, null, null);
+////        if (cursor == null) {
+////            cursor.close();
+////            return String.valueOf(100001);
+////        }
+//        int nextNo = 0;
+//        if (cursor != null) {
+//            cursor.moveToFirst();
+//            String maxRefID = cursor.getString(0);
+//            nextNo = Integer.parseInt(maxRefID) + 1;
+//            cursor.close();
+//
+//        }
+//        return String.valueOf(nextNo);
+//    }
+
     public String getMasterUserName(String userID) {
         database = getReadableDatabase();
 
@@ -357,10 +391,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return pw;
     }
 
-    public ArrayList<NewPass> getAllGatePasses() {
+    public ArrayList<GatePass> getAllGatePasses() {
         database = getReadableDatabase();
 
-        ArrayList<NewPass> allPasses = new ArrayList<>();
+        ArrayList<GatePass> allPasses = new ArrayList<>();
 
         String select_all = "Select * from " + TABLE_GATEPASS;
 
@@ -368,34 +402,64 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
+
+                String id = cursor.getString(0);
+                String app_id = cursor.getString(1);
                 String ref_id = cursor.getString(2);
-                String userName = cursor.getString(3);
-                String dob = cursor.getString(8);
-                String email = cursor.getString(19);
-                String fastName = cursor.getString(4);
+                //String userName = cursor.getString(3);
+                String fastName = cursor.getString(3);
+                String lastName = cursor.getString(4);
                 String frName = cursor.getString(5);
-                String gender = cursor.getString(7);
-                String landLine = cursor.getString(15);
-                String lastName = cursor.getString(6);
-                String loginStatus = cursor.getString(21);
-                String mobNo = cursor.getString(16);
-                String mrStatus = cursor.getString(9);
-                String perAdd = cursor.getString(11);
-                String photoPath = cursor.getString(18);
-                String pin = cursor.getString(13);
-                String policeStation = cursor.getString(17);
-                String preAdd = cursor.getString(10);
-                String role = cursor.getString(20);
-                String state = cursor.getString(12);
-                String std = cursor.getString(14);
-                String userSign = cursor.getString(22);
+                String gender = cursor.getString(6);
+                String dob = cursor.getString(7);
+                String mrStatus = cursor.getString(8);
+                String preAdd = cursor.getString(9);
+                String perAdd = cursor.getString(10);
+                String state = cursor.getString(11);
+                String pin = cursor.getString(12);
+                String std = cursor.getString(13);
+                String landLine = cursor.getString(14);
+                String mobNo = cursor.getString(15);
+                //String email = cursor.getString(17);
+                String policeStation = cursor.getString(16);
+                String photoPath = cursor.getString(17);
+                String pass_type = cursor.getString(18);
+                String pass_catg = cursor.getString(19);
+                String pass_period = cursor.getString(20);
+                String reqDate = cursor.getString(21);
+                String comp_name = cursor.getString(22);
+                String veh_Type = cursor.getString(23);
+                String vehName = cursor.getString(24);
+                String lic_No = cursor.getString(25);
+                String reg_No = cursor.getString(26);
+                String owner_name = cursor.getString(27);
+                String id_proof_type = cursor.getString(28);
+                String id_no = cursor.getString(29);
+                String auth_letter_path = cursor.getString(30);
+                String rc_book_path = cursor.getString(31);
+                String ins_book_path = cursor.getString(32);
+                String safety_cert = cursor.getString(33);
+                String guard_status = cursor.getString(34);
+                String admin_stat = cursor.getString(35);
+                String mod_status = cursor.getString(36);
+                String rej_rejon = cursor.getString(37);
+                String accept_date = cursor.getString(38);
+                String mod_sign = cursor.getString(39);
+                String noc = cursor.getString(40);
+                String owner_photo = cursor.getString(41);
+                String city = cursor.getString(42);
+                String id_proof_path = cursor.getString(43);
+                String manager_sign = cursor.getString(44);
 
+                GatePass gatePass = new GatePass(id, app_id, ref_id, fastName, lastName,
+                        frName, gender, dob, mrStatus, preAdd, perAdd, state, pin, std,
+                        landLine, mobNo, policeStation, photoPath, pass_type, pass_catg,
+                        pass_period, reqDate, comp_name, veh_Type, vehName, lic_No, reg_No,
+                        owner_name, id_proof_type, id_no, guard_status, admin_stat, mod_status,
+                        rej_rejon, accept_date, mod_sign, noc, owner_photo, city, id_proof_path,
+                        manager_sign, auth_letter_path, rc_book_path, ins_book_path, safety_cert);
 
-                // NewPass newPass = new NewPass(dob, email, fastName, frName, gender, ref_id, landLine, lastName, loginStatus, mobNo,
-                //  mrStatus, perAdd, photoPath, pin, policeStation, preAdd, role, state, std, userName, userSign);
-                ;
-
-                // allPasses.add(newPass);
+                allPasses.add(gatePass);
 
             } while (cursor.moveToNext());
         }
@@ -405,58 +469,48 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void insertNewIndividualGatePass
-            (String id, String app_id, String ref_id, String pass_type, String pass_category,
-             String pass_period, String req_date, String comp_name, String id_ProofType, String idProof_Path, String id_no,
-             String fast_name, String last_name, String fr_name, String gender, String mr_status, String pre_add, String per_add, String city,
-             String state, String pincode, String std_code, String land_line, String mob, String police, String photo_path) {
+    public void insertNewIndPass
+            (String app_id, String ref_id, String pass_type, String pass_catg, String pass_period, String reqDate, String comp_name, String id_proof_type, String id_proof_path, String id_no, String fastName, String lastName,
+             String frName, String gender, String dob, String mrStatus, String preAdd,
+             String perAdd, String city, String state, String pin, String std, String landLine, String mobNo,
+             String policeStation, String photoPath) {
 
-        //String date_of_birth, String vehicle_name, String vehicle_type, String lic_no, String reg_no, String owner_name, String guard_status, String mod_status, String reject_rejon,
-        //String accept_date, String mod_sign, String noc, String owner_photo,String id_proof_no, String manager_sign) {
+//                    , String veh_Type,String vehName, String lic_No, String reg_No, String owner_name,
+//              String guard_status, String admin_stat, String mod_status, String rej_rejon,
+//             String accept_date, String mod_sign, String owner_photo, String noc) {
+//
         database = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_ID, id);
+        // contentValues.put(COL_ID, id);
         contentValues.put(COL_APP_ID, app_id);
         contentValues.put(COL_REF_ID, ref_id);
-        contentValues.put(COL_FASTNAME, fast_name);
-        contentValues.put(COL_LASTNAME, last_name);
-        contentValues.put(COL_FRNAME, fr_name);
-        contentValues.put(COL_GENDER, gender);
-        // contentValues.put(COL_DOB, date_of_birth);
-        contentValues.put(COL_MRSTATUS, mr_status);
-        contentValues.put(COL_PRESENT_ADD, pre_add);
-        contentValues.put(COL_PERMANENT_ADD, per_add);
-        contentValues.put(COL_STATE, state);
-        contentValues.put(COL_PINCODE, pincode);
-        contentValues.put(COL_STD, std_code);
-        contentValues.put(COL_LAND_LINE, land_line);
-        contentValues.put(COL_MOB_NO, mob);
-        contentValues.put(COL_POLICE_STATION, police);
-        contentValues.put(COL_PHOTO_PATH, photo_path);
         contentValues.put(COL_PASS_TYPE, pass_type);
-        contentValues.put(COL_PASS_CATEGORY, pass_category);
+        contentValues.put(COL_PASS_CATEGORY, pass_catg);
         contentValues.put(COL_PASS_PERIOD, pass_period);
-        contentValues.put(COL_REQ_DATE, req_date);
+        contentValues.put(COL_REQ_DATE, reqDate);
         contentValues.put(COL_COMP_NAME, comp_name);
-        //  contentValues.put(COL_VEHICLE_NAME, vehicle_name);
-        // contentValues.put(COL_VEHICLE_TYPE, vehicle_type);
-        // contentValues.put(COL_LIC_NO, lic_no);
-        // contentValues.put(COL_REG_NO, reg_no);
-        //  contentValues.put(COL_OWNER_NAME, owner_name);
-        contentValues.put(COL_ID_PROOF_TYPE, id_ProofType);
+        contentValues.put(COL_ID_PROOF_TYPE, id_proof_type);
+        contentValues.put(COL_ID_PROOF_PATH, id_proof_path);
         contentValues.put(COL_ID_NO, id_no);
-        //  contentValues.put(COL_GUARD_STATUS, guard_status);
-        //  contentValues.put(COL_MOD_STATUS, mod_status);
-        //  contentValues.put(COL_REJECT_REASON, reject_rejon);
-        //  contentValues.put(COL_ACCEPT_DATE, accept_date);
-        // contentValues.put(COL_MOD_SIGN, mod_sign);
-        // contentValues.put(COL_NOC, noc);
-        // contentValues.put(COL_OWNER_PHOTO, owner_photo);
-        //  contentValues.put(COL_CITY, city);
-        //  contentValues.put(COL_ID_PROOF_NO, id_proof_no);
-        // contentValues.put(COL_MANAGER_SIGN, manager_sign);
+
+        // Individual Information
+        contentValues.put(COL_FASTNAME, fastName);
+        contentValues.put(COL_LASTNAME, lastName);
+        contentValues.put(COL_FRNAME, frName);
+        contentValues.put(COL_GENDER, gender);
+        contentValues.put(COL_DOB, dob);
+        contentValues.put(COL_MRSTATUS, mrStatus);
+        contentValues.put(COL_PRESENT_ADD, preAdd);
+        contentValues.put(COL_PERMANENT_ADD, perAdd);
+        contentValues.put(COL_STATE, state);
+        contentValues.put(COL_PINCODE, pin);
+        contentValues.put(COL_STD, std);
+        contentValues.put(COL_LAND_LINE, landLine);
+        contentValues.put(COL_MOB_NO, mobNo);
+        contentValues.put(COL_POLICE_STATION, policeStation);
+        contentValues.put(COL_PHOTO_PATH, photoPath);
 
         try {
             database.insert(TABLE_GATEPASS, null, contentValues);
@@ -468,36 +522,105 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertNewVehicleGatePass
-            (String id, String app_id, String ref_id, String pass_type,
-             String pass_period, String req_date, String comp_name, String vehicle_type, String vehicle_make, String lic_no, String reg_no,
-             String owner_name, String owner_photo, String auth_letter_path, String rc_book, String insurance,
-             String safety_cert, String fast_name, String last_name, String fr_name, String date_of_birth, String pre_add,
-             String per_add, String city, String state, String pincode, String std_code, String land_line, String mob,
-             String police, String photo_path) {
 
-        //String date_of_birth, String vehicle_name, String vehicle_type, String lic_no, String reg_no, String owner_name, String guard_status, String mod_status, String reject_rejon,
-        //String accept_date, String mod_sign, String noc, String owner_photo,String id_proof_no, String manager_sign) {
+    //  public Integer NextIndGPNo() {
+//        database = getReadableDatabase();
+//        //Cursor cursor = database.query("Select Max(ref_id) from" + TABLE_GATEPASS + " where " + COL_PASS_TYPE + "= Individual", null, null, null, null, null, null);
+//        String sql = "Select Max(" + COL_REF_ID + ") from " + TABLE_GATEPASS + " where " + COL_PASS_TYPE + "=Individual";
+//        Cursor cursor = database.rawQuery(sql, null);//, null, null, null, null, null, null);
+//        // Select max(ref_id) from Gatepass where pass_type="Individual";
+//        int maxId;
+//        Log.e("MMP", sql);
+//
+//        if (cursor.getCount() < 1) {
+//            cursor.close();
+//            return 100000;
+//
+//        }
+//        cursor.moveToFirst();
+//        String ref_id = cursor.getString(cursor.getColumnIndex(COL_REF_ID));
+//        if (ref_id.equals("")) {
+//            return 0;
+//
+//        } else {
+//            maxId = Integer.parseInt(ref_id) + 1;
+//        }
+//        cursor.close();
+//        return maxId;
+
+    // }
+    public String getMaxAppID_IndPass() {
+        database = getReadableDatabase();
+        Cursor cursor = database.query(TABLE_GATEPASS, new String[]{"MAX(" + COL_APP_ID + ") AS MAX"}, null, null, null, null, null);
+        cursor.moveToFirst();
+        int index = cursor.getColumnIndex("MAX");
+        int appID = Integer.parseInt(cursor.getString(index)) + 1;
+        database.close();
+
+        return String.valueOf(appID);
+    }
+
+    public String getMaxRefID_IndPass() {
+        database = getReadableDatabase();
+        Cursor cursor = database.query(TABLE_GATEPASS, new String[]{"MAX(" + COL_REF_ID + ") AS MAX"}, null, null, null, null, null);
+        if (cursor.getCount() < 1) {
+            return String.valueOf(100000);
+        } else {
+            cursor.moveToFirst();
+            int index = cursor.getColumnIndex("MAX");
+            int refID = Integer.parseInt(cursor.getString(index)) + 1;
+            database.close();
+
+            return String.valueOf(refID);
+        }
+    }
+
+    public void insertNewVehPass
+            (String app_id, String ref_id, String pass_type,
+             String pass_period, String req_date, String comp_name, String vehicle_type,
+             String vehicle_make, String lic_no, String reg_no, String owner_name,
+             String owner_photo, String auth_letter_path, String rc_book_path,
+             String insBookPath, String safety_cert, String fast_name, String last_name,
+             String fr_name, String date_of_birth, String gender, String mrStatus,
+             String pre_add, String per_add, String city, String state, String pincode,
+             String std_code, String land_line, String mob, String police, String photo_path) {
+
         database = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_ID, id);
+        // Pass Information
+
         contentValues.put(COL_APP_ID, app_id);
         contentValues.put(COL_REF_ID, ref_id);
         contentValues.put(COL_PASS_TYPE, pass_type);
+        contentValues.put(COL_PASS_PERIOD, pass_period);
+        contentValues.put(COL_REQ_DATE, req_date);
+        contentValues.put(COL_COMP_NAME, comp_name);
+
+
+        // Proof Information
         contentValues.put(COL_VEHICLE_TYPE, vehicle_type);
         contentValues.put(COL_VEHICLE_NAME, vehicle_make);
         contentValues.put(COL_LIC_NO, lic_no);
         contentValues.put(COL_REG_NO, reg_no);
         contentValues.put(COL_OWNER_NAME, owner_name);
         contentValues.put(COL_OWNER_PHOTO, owner_photo);
-        //contentValues.put(Col_A);
+        contentValues.put(COL_AUTH_LETTER_PATH, auth_letter_path);
+        contentValues.put(COL_RC_BOOK_PATH, rc_book_path);
+        contentValues.put(COL_INS_BOOK_PATH, insBookPath);
+        contentValues.put(COL_SAFETY_CERT, safety_cert);
+
+
+        //Individual Information
         contentValues.put(COL_FASTNAME, fast_name);
         contentValues.put(COL_LASTNAME, last_name);
         contentValues.put(COL_FRNAME, fr_name);
+        contentValues.put(COL_GENDER, gender);
+        contentValues.put(COL_MRSTATUS, mrStatus);
         contentValues.put(COL_PRESENT_ADD, pre_add);
         contentValues.put(COL_PERMANENT_ADD, per_add);
+        contentValues.put(COL_CITY, city);
         contentValues.put(COL_STATE, state);
         contentValues.put(COL_PINCODE, pincode);
         contentValues.put(COL_STD, std_code);
@@ -505,11 +628,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_MOB_NO, mob);
         contentValues.put(COL_POLICE_STATION, police);
         contentValues.put(COL_PHOTO_PATH, photo_path);
-        contentValues.put(COL_PASS_TYPE, pass_type);
-        contentValues.put(COL_PASS_PERIOD, pass_period);
-        contentValues.put(COL_REQ_DATE, req_date);
-        contentValues.put(COL_COMP_NAME, comp_name);
-
 
         try {
             database.insert(TABLE_GATEPASS, null, contentValues);
@@ -518,22 +636,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         } finally {
             database.close();
         }
-
-    }
-
-    public Integer LastGPNo() {
-        Cursor cursor = database.query("Select Max(ref_id) from " + TABLE_GATEPASS + " where " + COL_PASS_TYPE + "= Individual", null, null, null, null, null, null);
-        int maxid;
-
-        if (cursor.getCount() < 1) {
-            cursor.close();
-
-        }
-        cursor.moveToFirst();
-        String ref_id = cursor.getString(cursor.getColumnIndex(COL_REF_ID));
-        maxid = Integer.parseInt(ref_id) + 1;
-        cursor.close();
-        return maxid;
 
     }
 
@@ -559,6 +661,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
+//    public String getMaxAppID_IndPass() {
+//
+//        database = getReadableDatabase();
+//        String sql = "SELECT IFNULL(MAX(" + COL_APP_ID + "),0) AS maxAppId FROM " + TABLE_GATEPASS + ";";
+//        Cursor cursor = database.rawQuery(sql, null);
+//
+//
+//       // int maxAppID = cursor.getInt(1);
+//
+//        String max=cursor.getColumnName(Integer.parseInt(getMaxAppID_IndPass()));
+//
+//        return String.valueOf(max + 1);
+//
+//    }
 }
 
 

@@ -1,4 +1,4 @@
-package in.app.myandroid.mygatepassmanagement;
+package in.app.myandroid.mygatepassmanagement.fragments;
 
 
 import android.os.Bundle;
@@ -7,14 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import in.app.myandroid.mygatepassmanagement.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MasterLoginFragment extends Fragment {
+public class PendingPassesListFragment extends Fragment {
 
 
-    public MasterLoginFragment() {
+    public PendingPassesListFragment() {
         // Required empty public constructor
     }
 
@@ -23,11 +24,7 @@ public class MasterLoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_master_login, container, false);
-
-
-        return view;
-
+        return inflater.inflate(R.layout.fragment_pending_passes_list, container, false);
     }
 
 }

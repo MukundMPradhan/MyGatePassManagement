@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.app.myandroid.mygatepassmanagement.MasterLoginFragment">
+    tools:context="in.app.myandroid.mygatepassmanagement.fragments.MasterLoginFragment">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Master Login ..."
-    android:layout_margin="10dp"
-    android:textAppearance="@android:style/TextAppearance.Large" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Master Login ..."
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
     <EditText
         android:id="@+id/etMasterUserName"
         android:layout_width="match_parent"
@@ -33,14 +34,14 @@
         android:inputType="textPassword" />
 
     <Button
-android:id="@+id/buttonMasterLogin"
-style="@style/pink_button"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginTop="50dp"
-android:text="Master Login"
-android:textAllCaps="false"
+        android:id="@+id/buttonMasterLogin"
+        style="@style/pink_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Master Login"
+        android:textAllCaps="false"
 
-/>
+        />
 
 </LinearLayout>

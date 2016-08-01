@@ -3,21 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.app.myandroid.mygatepassmanagement.fragments.AddNewIndividualPassFragment">
+    tools:context="in.app.myandroid.mygatepassmanagement.fragments.AddNewVehiclePassFragment">
 
     <TextView
         style="@android:style/TextAppearance.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:text="New Individual Pass"
+        android:text="New Vehicle Pass"
         android:textColor="@android:color/holo_red_dark"
         android:textStyle="normal|bold" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/mainLayout"
@@ -25,27 +23,25 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/headershape"
-                android:text="Pass Section"
-                android:textColor="@android:color/white"
-                android:textStyle="bold|normal" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/headershape"
+                    android:text="Pass Information"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold|normal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -59,14 +55,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:background="@drawable/shape_textbox"
-                        android:keepScreenOn="false" />
+                        android:background="@drawable/shape_textbox" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -83,43 +79,24 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radButtonIndPassIndividual"
+                            android:id="@+id/radButtonVehPassIndividual"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:checked="true"
+                            android:duplicateParentState="false"
                             android:text="Individual" />
 
                         <RadioButton
-                            android:id="@+id/radButtonIndPassVehicle"
+                            android:id="@+id/radButtonVehPassVehicle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:enabled="true"
+                            android:checked="true"
                             android:text="Vehicle" />
                     </RadioGroup>
-
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Pass Category" />
-
-                    <Spinner
-                        android:id="@+id/spinnerIndPassPassCategory"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:background="@drawable/shape_textbox" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -141,6 +118,7 @@
                         android:background="@drawable/shape_textbox" />
                 </LinearLayout>
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,7 +132,7 @@
                         android:text="Request Date" />
 
                     <TextView
-                        android:id="@+id/tvIndPassRequestDate"
+                        android:id="@+id/tvVehPassRequestDate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -164,12 +142,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:text="Company" />
 
@@ -179,113 +157,284 @@
                         android:layout_weight="2">
 
                         <Spinner
-                            android:id="@+id/spinnerIndPassCompany"
+                            android:id="@+id/spinnerVehPassCompany"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
                             android:background="@drawable/shape_textbox" />
 
                         <ImageView
-                            android:id="@+id/imgbuttonIndPassAddComp"
+                            android:id="@+id/buttonVehPassAddCompany"
                             android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                           android:src="@drawable/company_add" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ID Proof" />
-
-                    <Spinner
-                        android:id="@+id/spinnerIndPassIDProof"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:background="@drawable/shape_textbox" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Upload ID Proof" />
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2">
-
-                        <TextView
-                            android:id="@+id/etIndPassIDProofPath"
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/shape_textbox"
-                            android:drawableRight="@drawable/camera" />
+                            android:layout_weight="1"
+                            android:src="@drawable/company_add" />
+                    </LinearLayout>
 
-                    </RelativeLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="ID Proof Number" />
-
-                    <EditText
-                        android:id="@+id/etIndPassIDProofNo"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:background="@drawable/shape_textbox" />
-                </LinearLayout>
 
             </LinearLayout>
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Large"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:background="@drawable/headershape"
-                android:text="Individual Information"
-                android:textColor="@android:color/white"
-                android:textStyle="bold|normal" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/headershape"
+                    android:text="Proof Information"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold|normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="Vehicle Type" />
+
+                    <RadioGroup
+                        android:id="@+id/radGroupVehPassVehType"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radButtonVehPassLight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Light" />
+
+                        <RadioButton
+                            android:id="@+id/radioButtonVehPassHeavy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="Heavy" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vehicle Make *" />
+
+                    <Spinner
+                        android:id="@+id/spinnerVehPassVehicleMake"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="License No. *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassLicNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Resistration No. *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassRegNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Owner's Name *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassOwnerName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Owner Photo *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassOwnerPhoto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox"
+                        android:drawableRight="@drawable/camera" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:text="Auth CHA Letter/Registered Party *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassCHAAuthLetter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox"
+                        android:drawableRight="@drawable/camera" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="RC Book *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassRCBook"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox"
+                        android:drawableRight="@drawable/camera" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Insurance *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassInsurance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Safety Certificate *" />
+
+                    <EditText
+                        android:id="@+id/etVehPassSafetyCert"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox"
+                        android:drawableRight="@drawable/camera" />
+                </LinearLayout>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/headershape"
+                    android:text="Proof Information"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold|normal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
+
 
                     <TextView
                         android:layout_width="0dp"
@@ -294,7 +443,7 @@
                         android:text="First Name" />
 
                     <EditText
-                        android:id="@+id/etIndPassFastName"
+                        android:id="@+id/etVehPassFastName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -304,7 +453,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -314,7 +462,7 @@
                         android:text="Last Name" />
 
                     <EditText
-                        android:id="@+id/etIndPassLastName"
+                        android:id="@+id/etVehPassLastName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -324,7 +472,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -334,7 +481,7 @@
                         android:text="Father's Name" />
 
                     <EditText
-                        android:id="@+id/etIndPassFrName"
+                        android:id="@+id/etVehPassFrName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -344,7 +491,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -354,22 +500,21 @@
                         android:text="Gender" />
 
                     <RadioGroup
-                        android:id="@+id/radGroupIndPassGender"
+                        android:id="@+id/radGroupVehPassGender"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radioButtonIndPassMale"
+                            android:id="@+id/radioButtonVehPassMale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="true"
                             android:text="Male" />
 
                         <RadioButton
-                            android:id="@+id/radioButtonIndPassFemale"
+                            android:id="@+id/radioButtonVehPassFemale"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -381,7 +526,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -393,8 +537,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:orientation="horizontal">
+                        android:layout_weight="2">
 
                         <TextView
                             android:id="@+id/etVehPassDOB"
@@ -409,7 +552,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -419,22 +561,21 @@
                         android:text="Marital Status" />
 
                     <RadioGroup
-                        android:id="@+id/radGroupIndPassMaritalStatus"
+                        android:id="@+id/radGroupVehPassMaritalStatus"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radioButtonIndPassSignle"
+                            android:id="@+id/radioButtonVehPassSignle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="true"
                             android:text="Single" />
 
                         <RadioButton
-                            android:id="@+id/radioButtonIndPassMarried"
+                            android:id="@+id/radioButtonVehPassMarried"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -446,7 +587,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -456,7 +596,7 @@
                         android:text="Present Address" />
 
                     <EditText
-                        android:id="@+id/etIndPassPreAdd"
+                        android:id="@+id/etVehPassPreAdd"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -466,8 +606,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -475,7 +614,7 @@
                         android:layout_weight="1" />
 
                     <CheckBox
-                        android:id="@+id/checkboxIndPassSameAdd"
+                        android:id="@+id/checkboxVehPassSameAdd"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -485,7 +624,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -495,7 +633,7 @@
                         android:text="Permanent Address" />
 
                     <EditText
-                        android:id="@+id/etIndPassPerAdd"
+                        android:id="@+id/etVehPassPerAdd"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -506,7 +644,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -516,7 +653,7 @@
                         android:text="City" />
 
                     <EditText
-                        android:id="@+id/etIndPassCity"
+                        android:id="@+id/etVehPassCity"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -527,7 +664,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -537,7 +673,7 @@
                         android:text="State" />
 
                     <Spinner
-                        android:id="@+id/spinnerIndPassState"
+                        android:id="@+id/spinnerVehPassState"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -547,7 +683,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -557,7 +692,7 @@
                         android:text="Pin Code" />
 
                     <EditText
-                        android:id="@+id/etIndPassPinCode"
+                        android:id="@+id/etVehPassPinCode"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -569,7 +704,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -579,12 +713,12 @@
                         android:text="Land Line with code" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2">
 
                         <EditText
-                            android:id="@+id/etIndPassLandLineCode"
+                            android:id="@+id/etVehPassLandLineCode"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -594,19 +728,17 @@
                             android:maxLines="1" />
 
                         <EditText
-                            android:id="@+id/etIndPassLandLineNo"
+                            android:id="@+id/etVehPassLandLineNo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:background="@drawable/shape_textbox"
-                            android:inputType="numberSigned" />
+                            android:background="@drawable/shape_textbox" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -616,7 +748,7 @@
                         android:text="Mobile" />
 
                     <EditText
-                        android:id="@+id/etIndPassMobile"
+                        android:id="@+id/etVehPassMobile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -630,7 +762,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -640,7 +771,7 @@
                         android:text="Nearest Police Station" />
 
                     <EditText
-                        android:id="@+id/etIndPassPoliceStation"
+                        android:id="@+id/etVehPassPoliceStation"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -650,11 +781,10 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imgIndPassPhoto"
+                        android:id="@+id/imgVehPassPhoto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -664,37 +794,43 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Photo" />
+                        android:text="Photo " />
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/tvVehPassPhotoPath"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2">
+                        android:layout_weight="2"
+                        android:background="@drawable/shape_textbox"
+                        android:drawableRight="@drawable/camera" />
 
-                        <TextView
-                            android:id="@+id/tvIndPassPhotoPath"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/shape_textbox"
-                            android:drawableRight="@drawable/camera" />
-                    </RelativeLayout>
+                    <!--<RelativeLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="2">-->
 
-
+                    <!--<TextView-->
+                    <!--android:id="@+id/tvVehPassPhotoPath"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/shape_textbox"-->
+                    <!--android:drawableRight="@drawable/camera" />-->
+                    <!--</RelativeLayout>-->
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/buttonIndPassSubmit"
-                        style="@style/pink_button"
+                        android:id="@+id/buttonVehPassSubmit"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -702,11 +838,12 @@
                         android:text="Submit" />
 
                     <Button
-                        android:id="@+id/buttonIndPassCancel"
-                        style="@style/pink_button"
+                        android:id="@+id/buttonVehPassCancel"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:background="@drawable/headershape"
                         android:text="Cancel" />
                 </LinearLayout>
             </LinearLayout>

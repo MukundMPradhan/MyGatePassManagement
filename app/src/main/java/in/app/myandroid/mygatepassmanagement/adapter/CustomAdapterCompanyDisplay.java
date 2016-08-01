@@ -74,6 +74,7 @@ public class CustomAdapterCompanyDisplay extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Are you want to delete the " + companies.get(position).getCompName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Position : " + position, Toast.LENGTH_SHORT).show();
             }
         });
 

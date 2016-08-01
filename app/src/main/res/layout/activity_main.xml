@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.app.myandroid.mygatepassmanagement.MainActivity">
+    tools:context="in.app.myandroid.mygatepassmanagement.activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,11 +13,17 @@
         android:orientation="vertical">
 
         <include
-            layout="@layout/toolbar_layout"
+            layout="@layout/layout_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"/>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
@@ -26,18 +31,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/navigation_drawer_header"
-        app:menu="@menu/drawer_menu">
-
-    </android.support.design.widget.NavigationView>
-
-    <FrameLayout
-        android:id="@+id/main_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
-
-
-    </FrameLayout>
+        app:menu="@menu/drawer_menu"/>
 
 
 </android.support.v4.widget.DrawerLayout>

@@ -5,10 +5,12 @@
             android:id="@+id/mnu_home"
             android:icon="@mipmap/ic_launcher"
             android:title="Home" />
+        </group>
+    <group>
         <item
-            android:id="@+id/mnu_new_pass"
+            android:id="@+id/mnu_new"
             android:icon="@mipmap/ic_launcher"
-            android:title="New Pass">
+            android:title="Add New">
             <menu>
                 <item
                     android:id="@+id/mnu_new_ind_pass"
@@ -18,6 +20,10 @@
                     android:id="@+id/mnu_new_veh_pass"
                     android:icon="@mipmap/ic_launcher"
                     android:title="Vehicle Pass" />
+                <item
+                    android:id="@+id/mnu_new_company"
+                    android:icon="@mipmap/ic_launcher"
+                    android:title="Company" />
             </menu>
 
 
